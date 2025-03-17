@@ -1,12 +1,25 @@
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+
+//layouts
+import DefaultLayout from './layouts/DefaultLayout';
+
+//pages
+import HomePage from './pages/HomePage';
+import MoviePage from './pages/MoviePage';
 
 function App() {
-
-
   return (
     <>
-      <h1 className="text-center text-danger">Ciao Da App</h1>
+      <BrowserRouter>
+        <Routes>
+          <Route Component={DefaultLayout}>
+            <Route path="/" Component={HomePage} />
+            <Route path="/movies/:id" Component={MoviePage} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
