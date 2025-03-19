@@ -4,7 +4,7 @@ export default function ReviewCard({ review }) {
 
     return (
         <>
-            <div key={id} className="card mb-4">
+            <div key={id} className="card my-4 col-6 mx-auto">
                 <div className="card-body">
                     <h5>{name}</h5>
                     <p className="card-text">

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import ReviewCard from '../components/ReviewCard';
+import ReviewForm from '../components/ReviewForm';
 
 export default function MoviePage() {
 
@@ -29,13 +30,22 @@ export default function MoviePage() {
 
     return (
         <>
-            <h1>{movie?.title}</h1>
-            <img src={movie?.image} alt={movie?.title} />
+            <div className='card col-6 mx-auto text-center'>
 
-            <section>
-                <h4>Our community reviews</h4>
-                {renderReviews()}
-            </section>
+                <h1 className='my-4'>{movie?.title}</h1>
+                <img className='img-top img-fluid' src={movie?.image} alt={movie?.title} />
+
+                {/* reviews movie */}
+                <section>
+                    <h4 className='mt-2'>Our community reviews</h4>
+                    {renderReviews()}
+                </section>
+
+                {/* form review */}
+                <section>
+                    {movie?.id && <ReviewForm movie_id={movie.id} reloadReviews={fetchMovie} />}
+                </section>
+            </div>
         </>
     )
 }
